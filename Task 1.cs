@@ -3,7 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
 {
-    static void firstProgram()
+    static void FirstProgram()
     {
         Console.Write("Введите число которое будут возводить в степень: ");
         int number = Convert.ToInt32(Console.ReadLine());
@@ -18,7 +18,7 @@ class Program
         Console.WriteLine($"Результат: {numberRaisedToAPower}");
     }
 
-    static void secondProgram()
+    static void SecondProgram()
     {
         Console.Write("Введите число содержащее от трех до шести цифр (включительно): ");
 
@@ -77,10 +77,10 @@ class Program
             switch (choice)
             {
                 case "1":
-                    firstProgram();
+                    FirstProgram();
                     break;
                 case "2":
-                    secondProgram();
+                    sSecondProgram();
                     break;
             }
         }
