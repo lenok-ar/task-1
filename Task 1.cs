@@ -20,50 +20,28 @@ class Program
 
     static void SecondProgram()
     {
-        Console.Write("Введите число содержащее от трех до шести цифр (включительно): ");
+        Console.Write("Введите число, содержащее более двух цифр: ");
+        string input = Console.ReadLine();
 
-        int inputNumber = Convert.ToInt32(Console.ReadLine());
-
-        if (inputNumber < 100 & inputNumber > 1000000)
+        if (input.Length < 3)
         {
-            Console.Write("Число содержит меньше трех цифр или больше шести");
+            Console.WriteLine("Число должно содержать более двух цифр.");
+            return;
         }
 
-        if (inputNumber > 100 & inputNumber < 999)
-        {
-            int secondDigit = (inputNumber / 10) % 10;
-            int CombineTheNumber = (inputNumber / 100) * 10 + (inputNumber % 10);
-            int finalNumber = CombineTheNumber * 10 + secondDigit;
+        int secondDigit = (input[1] - '0'); // Вторая цифра (как символ)
+        string modifiedNumber = input[0].ToString(); // Первая цифра
 
-            Console.WriteLine($"Результат: {finalNumber}");
+        // Пропуск второй цифры
+        for (int i = 2; i < input.Length; i++)
+        {
+            modifiedNumber += input[i]; // Собираем новое число без второй цифры
         }
 
-        if (inputNumber > 1000 & inputNumber < 9999)
-        {
-            int secondDigit = (inputNumber / 100) % 10; // находим вторую цифру в числе
-            int CombineTheNumber = (inputNumber / 1000) * 100 + (inputNumber % 100); // объединяем все оставшиеся числа в одно, удаляем вторую цифру
-            int finalNumber = CombineTheNumber * 10 + secondDigit;
+        // Добавляем вторую цифру в конец
+        modifiedNumber += secondDigit;
 
-            Console.WriteLine($"Результат: {finalNumber}");
-        }
-
-        if (inputNumber > 10000 & inputNumber < 99999)
-        {
-            int secondDigit = (inputNumber / 1000) % 10;
-            int CombineTheNumber = (inputNumber / 10000) * 1000 + (inputNumber % 1000);
-            int finalNumber = CombineTheNumber * 10 + secondDigit;
-
-            Console.WriteLine($"Результат: {finalNumber}");
-        }
-
-        if (inputNumber > 100000 & inputNumber < 999999)
-        {
-            int secondDigit = (inputNumber / 10000) % 10;
-            int CombineTheNumber = (inputNumber / 100000) * 10000 + (inputNumber % 10000);
-            int finalNumber = CombineTheNumber * 10 + secondDigit;
-
-            Console.WriteLine($"Результат: {finalNumber}");
-        }
+        Console.WriteLine($"Результат: {modifiedNumber}");
     }
 
     static void Main()
@@ -86,4 +64,3 @@ class Program
         }
     }
 }
-
